@@ -4,7 +4,7 @@ xsetroot -cursor_name left_ptr
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom &
 fcitx5 &
-feh --randomize --bg-fill ~/config/scripts/wallpapers/1.png
+feh --randomize --bg-fill ~/dotfiles/wallpapers/1.png
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
