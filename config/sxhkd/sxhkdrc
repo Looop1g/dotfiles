@@ -26,19 +26,20 @@ alt + shift + {q, r}
 
 # 关闭窗口／杀死进程
 # c 表示关闭，k 表示杀死
-alt + shift + {c, k}
+alt + shift + {_, ctrl +}c
 	bspc node -{c,k}
 
 # 将选中的窗口在单窗口与平铺之间进行切换
 # 注意的是单窗口与全屏不一样的是，单窗口会保留 polybar 而全屏是真正的全屏
-super + m
+# 并且单窗口会将后面的窗口贴在选中窗口之后
+alt + shift + m
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
+# 将标记窗口送到预选的位置
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest window
+# 将选中的节点与最大的窗口进行交换
 super + g
 	bspc node -s biggest.window
 
@@ -46,7 +47,7 @@ super + g
 # state/flags
 #
 
-# set the window state
+# 切换窗口的状态模式
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
@@ -58,8 +59,8 @@ super + ctrl + {m,x,y,z}
 # focus/swap
 #
 
-# focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
+# 移动焦点/移动节点
+alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
