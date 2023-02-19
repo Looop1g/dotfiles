@@ -21,11 +21,3 @@ parse_git_branch() {
 
 # Bash 的美化
 export PS1="\n\[\033[1;35m\]  \u\[\033[1;34m\]\$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n\[\033[0m\]\[\033[1;31m\] \[\033[0m\]"
-
-
-# 
-# 其他设置
-#
-
-# 使用 cargo
-. "$HOME/.cargo/env"
