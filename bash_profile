@@ -19,6 +19,6 @@ export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx5
 
 # 登录用户自动 startx 进入窗口管理器
-# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-#   exec startx
-# fi
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
