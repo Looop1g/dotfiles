@@ -2,9 +2,9 @@
 
 xsetroot -cursor_name left_ptr
 pgrep -x sxhkd > /dev/null || sxhkd &
-picom &
-fcitx5 &
-feh --randomize --bg-fill ~/dotfiles/wallpapers/1.png
+feh --randomize --bg-fill ~/dotfiles/wallpapers/1.png &
+/bin/bash $HOME/.config/polybar/launch.sh &
+/bin/bash $HOME/dotfiles/config/bspwm/autostart.sh &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -14,3 +14,6 @@ bspc config window_gap              5
 bspc config split_ratio             0.52
 bspc config borderless_monocle      true
 bspc config gapless_monocle         true
+
+
+bspc rule -a QQ state=floating
