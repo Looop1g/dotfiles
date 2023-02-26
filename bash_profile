@@ -1,4 +1,8 @@
 # $HOME/.bash_profile
+
+# This file is sourced by bash for login shells.  The following line
+# runs your .bashrc and is recommended by the bash info pages.
+
 # 加载用户目录下的 .bashrc 文件
 if [[ -f ~/.bashrc ]]; then
     . ~/.bashrc
@@ -14,8 +18,11 @@ export GOOGLE_DEFAULT_CLIENT_ID=978136766540-cihgfunj72s0osna782hhacc3g6q4gnu.ap
 export GOOGLE_DEFAULT_CLIENT_SECRET=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
 
 # fcitx5 全局变量
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
+# 将 fcitx5 改为xim 之后chromium fcitx5 的 IU 变成正常
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=xim
+# export GTK_IM_MODULE=fcitx5
+# export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx5
 
 # 登录用户自动 startx 进入窗口管理器
