@@ -1,6 +1,19 @@
 # $HOME/.bashrc
+
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain fr>
+# outputting anything in those cases.
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+# Put your fun stuff here.
 
 # 在查询 grep 与 ls 中使用颜色进行区分
 alias grep='grep --color=auto'
@@ -20,4 +33,8 @@ parse_git_branch() {
     . /usr/share/bash-completion/bash_completion
 
 # Bash 的美化
-export PS1="\n\[\033[1;35m\]  \u\[\033[1;34m\]\$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n\[\033[0m\]\[\033[1;31m\] \[\033[0m\]"
+export PS1="\n\[\033[1;35m\]  \u\[\033[1;34m\]\$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n\[\033[0m\]\[\033[1;31m\] \[\033[0m\]"
+
+
+# 其他配置
+export PATH=$PATH:/opt/miniconda3/bin
