@@ -197,7 +197,7 @@ _G.packer_plugins = {
   playground = {
     load_after = {},
     loaded = true,
-    needs_bufread = true,
+    needs_bufread = false,
     path = "/home/looopig/.local/share/nvim/site/pack/packer/opt/playground",
     url = "https://github.com/nvim-treesitter/playground"
   },
