@@ -3,8 +3,9 @@
 #
 
 # 打开终端
+# 如果是虚拟机，则需要添加这个变量LIBGL_ALWAYS_SOFTWARE=1
 alt + shift + Return
-	LIBGL_ALWAYS_SOFTWARE=1 alacritty	# Used in virtual machines
+	alacritty
 
 # 程序起动器
 # 如果在 p 之前加入 @，就能使松开所有键在执行命令
@@ -48,10 +49,18 @@ super + g
 #
 
 # 切换窗口的状态模式
+# tiled：平铺模式
+# pseudo_tiled：类平铺模式
+# floating：悬浮模式
+# fullscreen：全屏模式
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
+# 给节点做一个标签（关闭重新执行快捷键）
+# marked：标记窗口
+# locked：锁定节点，使节点不能够关闭
+# sticky：粘住节点，使节点一直在你观察的屏幕中
+# private：不被打扰的模式，被标记的节点不能够被分块
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
@@ -60,32 +69,42 @@ super + ctrl + {m,x,y,z}
 #
 
 # 移动焦点/移动节点
+# 加上 shift 则是移动节点
 alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
+# 按照二叉树的序号进行选择节点
+# comma：逗号
+# period：句号
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous window in the current desktop
+# 也是通过二叉树的序号进行选择节点
+# 不过这是通过序号的顺序进行选择
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
+# 选择工作区左右移动
+# bracket{left,right}：表示左右大括号
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
+# 切换上一次使用过的节点或者工作区，重新执行快捷键会返回之前的节点或工作区
+# grave：着重号（波浪键），切换节点
+# Tab：切换工作区
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
+# 通过使用顺序切换节点（按历史记录进行回溯）
 super + {o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
+# 切换工作区
 alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
@@ -93,19 +112,19 @@ alt + {_,shift + }{1-9,0}
 # preselect
 #
 
-# preselect the direction
+# 预选窗口位置（使用 0.5 作为比例拆分）
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
+# 通过比例进行窗口的拆分（拆分窗口的位置需要通过上一条命令进行选择）
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
+# 取消当先预选的节点
 super + ctrl + space
 	bspc node -p cancel
 
-# cancel the preselection for the focused desktop
+# 取消当前桌面的所有预选节点
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
@@ -113,14 +132,22 @@ super + ctrl + shift + space
 # move/resize
 #
 
-# expand a window by moving one of its side outward
+# 增大当前焦点节点的大小
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# contract a window by moving one of its side inward
+# 减小当前焦点节点的大小
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-# move a floating window
+# 移动浮动窗口位置
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# 程序运行快捷键
+#
+
+# flameshot 截图快捷键
+ctrl + a
+    flameshot gui
