@@ -13,7 +13,7 @@ window:
 
   dynamic_padding: true
   decorations: none
-  opacity: 0.8
+  opacity: .97
 
 
 colors:
