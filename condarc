@@ -480,7 +480,7 @@
 # #   Automatically activate the base environment during shell
 # #   initialization.
 # # 
-# auto_activate_base: true
+auto_activate_base: false
 
 # # auto_stack (int)
 # #   Implicitly use --stack when using activate if current level of nesting
@@ -494,7 +494,7 @@
 # #   When using activate, change the command prompt ($PS1) to include the
 # #   activated environment.
 # # 
-changeps1: false
+# # changeps1: true
 
 # # env_prompt (str)
 # #   Template for prompt modification based on the active environment.
