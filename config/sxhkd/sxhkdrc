@@ -7,10 +7,13 @@
 alt + shift + Return
 	alacritty
 
-# 程序起动器
+# Rofi
 # 如果在 p 之前加入 @，就能使松开所有键在执行命令
 alt + p
-	rofi -show run
+	rofi -show drun
+
+alt + Tab
+  rofi -show window
 
 # 重新加载 sxhkd
 super + Escape
@@ -41,7 +44,7 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # 将选中的节点与最大的窗口进行交换
-super + g
+super + g 
 	bspc node -s biggest.window
 
 #
@@ -53,7 +56,7 @@ super + g
 # pseudo_tiled：类平铺模式
 # floating：悬浮模式
 # fullscreen：全屏模式
-super + {t,shift + t,s,f}
+super + {q,shift + q,w,e}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # 给节点做一个标签（关闭重新执行快捷键）
@@ -72,6 +75,14 @@ super + ctrl + {m,x,y,z}
 # 加上 shift 则是移动节点
 alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
+
+# 将焦点从平铺窗口移动到浮动窗口上
+alt + g
+  if [ "$(bspc query -N -n focused.floating)" ]; then \
+    bspc node -f last.tiled.local; \
+  else \
+    bspc node -f last.floating.local; \
+  fi
 
 # 按照二叉树的序号进行选择节点
 # comma：逗号
