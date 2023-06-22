@@ -3,9 +3,9 @@
 wmname LG3D
 xsetroot -cursor_name left_ptr
 pgrep -x sxhkd >/dev/null || sxhkd &
-feh --randomize --bg-fill ~/dotfiles/wallpapers/AnimeWaiting.png &
+feh --randomize --bg-fill $HOME/Documents/dotfiles/wallpapers/AnimeWaiting.png &
 /bin/bash $HOME/.config/polybar/launch.sh &
-/bin/bash $HOME/dotfiles/config/bspwm/autostart.sh &
+/bin/bash $HOME/Documents/dotfiles/config/bspwm/autostart.sh &
 
 bspc monitor -d I II III IV V
 
