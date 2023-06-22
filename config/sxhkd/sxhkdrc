@@ -162,3 +162,10 @@ super + {Left,Down,Up,Right}
 # flameshot 截图快捷键
 ctrl + a
     flameshot gui
+
+
+ctrl + alt + l
+    doas light -A 10
+
+ctrl + l
+    doas light -U 10
