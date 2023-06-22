@@ -28,6 +28,11 @@ super + Escape
 alt + shift + {q, r}
 	bspc {quit,wm -r}
 
+# 锁定屏幕
+super + q
+	i3lock -c 000000
+
+
 # 关闭窗口／杀死进程
 # c 表示关闭，k 表示杀死
 alt + shift + {_, ctrl +}c
