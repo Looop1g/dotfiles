@@ -29,7 +29,7 @@ alt + shift + {q, r}
 	bspc {quit,wm -r}
 
 # 锁定屏幕
-super + q
+alt + q
 	i3lock -c 000000
 
 
@@ -168,7 +168,7 @@ super + {Left,Down,Up,Right}
 ctrl + a
     flameshot gui
 
-
+# 调节笔记本屏幕亮度
 ctrl + alt + l
     doas light -A 10
 
