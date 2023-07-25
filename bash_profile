@@ -5,12 +5,12 @@
 
 # 加载用户目录下的 .bashrc 文件
 if [[ -f ~/.bashrc ]]; then
-    . ~/.bashrc
+	. ~/.bashrc
 fi
 
 # 系统环境变量
-export LANGUAGE="zh_CN.UTF-8"           # 设置系统语言为中文
-export RANGER_LOAD_DEFAULT_RC=FALSE     # ranger 用户配置生效
+export LANGUAGE="zh_CN.UTF-8"       # 设置系统语言为中文
+export RANGER_LOAD_DEFAULT_RC=FALSE # ranger 用户配置生效
 
 # chromium 开启用户登陆同步功能
 export GOOGLE_API_KEY=AIzaSyDXaZtHn8MAXcBbjGKBDiTG4bGv2eC0yvs
@@ -25,5 +25,5 @@ export XMODIFIERS=@im=fcitx5
 
 # 登录用户自动 startx 进入窗口管理器
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
+	startx
 fi
