@@ -24,6 +24,7 @@ export QT_IM_MODULE=fcitx5
 export XMODIFIERS=@im=fcitx5
 
 # 登录用户自动 startx 进入窗口管理器
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-	startx
-fi
+# 只有在使用 bspwm 等窗口管理器的时候才使用
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#	startx
+#fi
