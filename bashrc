@@ -13,8 +13,6 @@
 [[ $- != *i* ]] && return
 
 # Put your fun stuff here.
-
-# 在查询 grep 与 ls 中使用颜色进行区分
 alias grep='grep --color=auto'
 alias ll='ls -alh --color=auto'
 
@@ -33,21 +31,6 @@ parse_git_branch() {
 
 # Bash 的美化
 export PS1="\[\033[1;35m\]  \u\[\033[1;34m\]\$(parse_git_branch) \[\033[0;36m\]\w\[\033[0m\]\n\[\033[0m\]\[\033[1;31m\] \[\033[0m\]"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
-else
-  if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-    . "/opt/miniconda3/etc/profile.d/conda.sh"
-  else
-    export PATH="/opt/miniconda3/bin:$PATH"
-  fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # Configure completion for doas
 # -c : Complete arguments as if they were commands
